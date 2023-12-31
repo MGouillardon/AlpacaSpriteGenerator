@@ -1,11 +1,12 @@
 <script setup>
+import AppLayout from '@/layout/AppLayout.vue'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <main>
+  <AppLayout>
     <HelloWorld />
-  </main>
+  </AppLayout>
 </template>
 
 <style scoped>
