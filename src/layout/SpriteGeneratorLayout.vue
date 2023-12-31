@@ -1,6 +1,6 @@
 <template>
-    <div class="border border-red-300 w-full min-h-96 grid grid-cols-2">
-        <slot name="left"></slot>
-        <slot name="right"></slot>
+    <div class="w-full min-h-96 grid grid-cols-2 rounded-xl shadow-md bg-bali-hai-100 p-8">
+        <slot name="alpaca_sprite"></slot>
+        <slot name="alpaca_custom"></slot>
     </div>
 </template>

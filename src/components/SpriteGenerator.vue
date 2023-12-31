@@ -8,10 +8,10 @@ console.log(alpaca)
 
 <template>
   <SpriteGeneratorLayout>
-    <template #left>
+    <template #alpaca_sprite>
       <SpriteAlpaca />
     </template>
-    <template #right>
+    <template #alpaca_custom>
       <h1>Right</h1>
     </template>
   </SpriteGeneratorLayout>
