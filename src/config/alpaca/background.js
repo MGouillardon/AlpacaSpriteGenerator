@@ -1,4 +1,5 @@
 export const background = {
+  name: 'Background',
   backgrounds: [
     'blue50',
     'blue60',

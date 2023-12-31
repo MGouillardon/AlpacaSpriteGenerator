@@ -9,13 +9,13 @@ import { neck } from '@/config/alpaca/neck'
 import { nose } from '@/config/alpaca/nose'
 
 export const alpaca = {
-  accessories: accessories.AlpacaAccessories,
-  background: background.backgrounds,
-  ears: ears.alpacaEars,
-  eyes: eyes.alpacaEyes,
-  hair: hair.alpacahair,
-  leg: leg.alpacaLeg,
-  mouth: mouth.alpacaMouth,
-  neck: neck.alpacaNeck,
-  nose: nose.alpacaNose
+  accessories: accessories,
+  background: background,
+  ears: ears,
+  eyes: eyes,
+  hair: hair,
+  leg: leg,
+  mouth: mouth,
+  neck: neck,
+  nose: nose
 }
