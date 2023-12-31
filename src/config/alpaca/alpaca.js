@@ -1,30 +1,21 @@
+import { accessories } from '@/config/alpaca/accessories'
+import { background } from '@/config/alpaca/background'
+import { ears } from '@/config/alpaca/ears'
+import { eyes } from '@/config/alpaca/eyes'
+import { hair } from '@/config/alpaca/hair'
+import { leg } from '@/config/alpaca/leg'
+import { mouth } from '@/config/alpaca/mouth'
+import { neck } from '@/config/alpaca/neck'
+import { nose } from '@/config/alpaca/nose'
+
 export const alpaca = {
-  accessories: ['earings', 'flower', 'glasses', 'headphone'],
-  backgrounds: [
-    'blue50',
-    'blue60',
-    'blue70',
-    'darkblue30',
-    'darkblue50',
-    'darkblue70',
-    'green50',
-    'green60',
-    'green70',
-    'grey40',
-    'grey70',
-    'grey80',
-    'red50',
-    'red60',
-    'red70',
-    'yellow50',
-    'yellow60',
-    'yellow70'
-  ],
-  ears: ['default', 'tilt-backward', 'tilt-forward'],
-  eyes: ['angry', 'default', 'naughty', 'panda', 'smart', 'star'],
-  hair: ['bang', 'curls', 'default', 'elegant', 'fancy', 'quiff', 'short'],
-  leg: ['bubble-tea', 'cookie', 'default', 'game-console', 'tilt-backward', 'tilt-forward'],
-  mouth: ['astonished', 'default', 'eating', 'laugh', 'tongue'],
-  neck: ['bend-backward', 'bend-forward', 'default', 'thick'],
-  nose: ['nose'],
+  accessories: accessories.AlpacaAccessories,
+  background: background.backgrounds,
+  ears: ears.alpacaEars,
+  eyes: eyes.alpacaEyes,
+  hair: hair.alpacahair,
+  leg: leg.alpacaLeg,
+  mouth: mouth.alpacaMouth,
+  neck: neck.alpacaNeck,
+  nose: nose.alpacaNose
 }
