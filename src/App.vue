@@ -1,11 +1,11 @@
 <script setup>
 import AppLayout from '@/layout/AppLayout.vue'
-import HelloWorld from './components/HelloWorld.vue'
+import SpriteGenerator from './components/SpriteGenerator.vue';
 </script>
 
 <template>
   <AppLayout>
-    <HelloWorld />
+    <SpriteGenerator />
   </AppLayout>
 </template>
 
