@@ -1,6 +1,7 @@
 <script setup>
 import SpriteGeneratorLayout from '@/layout/SpriteGeneratorLayout.vue'
 import SpriteAlpaca from '@/components/SpriteAlpaca.vue'
+import CustomizeAlpaca from '@/components/CustomizeAlpaca.vue'
 import { alpaca } from '@/config/alpaca/alpaca'
 
 console.log(alpaca)
@@ -12,7 +13,7 @@ console.log(alpaca)
       <SpriteAlpaca />
     </template>
     <template #alpaca_custom>
-      <h1>Right</h1>
+      <CustomizeAlpaca />
     </template>
   </SpriteGeneratorLayout>
 </template>
