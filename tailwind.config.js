@@ -17,7 +17,10 @@ export default {
           '900': '#4d5965',
           '950': '#323b43',
       },      
-      }
+      },
+      fontFamily: {
+        'primary': ['Lato', 'sans-serif'],
+      },
     }
   },
   plugins: []
