@@ -1,6 +1,7 @@
 <script setup>
 import ButtonPrimary from '@/components/UI/ButtonPrimary.vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
+import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { ref } from 'vue'
 
 const alpaca = ref(alpacaConfig)
@@ -23,9 +24,6 @@ const setSelectedItem = (item) => {
   return (selectedItem.value = item)
 }
 
-const capitalizeFirstLetter = (str) => {
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
 </script>
 
 <template>
