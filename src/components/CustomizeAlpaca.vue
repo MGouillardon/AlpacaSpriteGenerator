@@ -16,6 +16,7 @@ const setItemsForCategorySelected = (category) => {
 }
 
 const setSelectedCategory = (category) => {
+  selectedItem.value = null
   selectedCategory.value = category.name
   itemsForCategorySelected.value = setItemsForCategorySelected(category)
 }
@@ -23,7 +24,6 @@ const setSelectedCategory = (category) => {
 const setSelectedItem = (item) => {
   return (selectedItem.value = item)
 }
-
 </script>
 
 <template>
