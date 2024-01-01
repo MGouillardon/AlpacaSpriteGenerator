@@ -1,4 +1,4 @@
 export const mouth = {
   name: 'Mouth',
-  alpacaMouth: ['astonished', 'default', 'eating', 'laugh', 'tongue']
+  items: ['astonished', 'default', 'eating', 'laugh', 'tongue']
 }

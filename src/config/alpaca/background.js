@@ -1,6 +1,6 @@
 export const background = {
   name: 'Background',
-  backgrounds: [
+  items: [
     'blue50',
     'blue60',
     'blue70',

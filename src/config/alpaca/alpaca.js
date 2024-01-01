@@ -8,7 +8,7 @@ import { mouth } from '@/config/alpaca/mouth'
 import { neck } from '@/config/alpaca/neck'
 import { nose } from '@/config/alpaca/nose'
 
-export const alpaca = {
+export const alpacaConfig = {
   accessories: accessories,
   background: background,
   ears: ears,

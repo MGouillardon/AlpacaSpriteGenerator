@@ -1,6 +1,6 @@
 export const accessories = {
     name: 'Accessories',
-    AlpacaAccessories: [
+    items: [
         'earring',
         'flower',
         'glasses',

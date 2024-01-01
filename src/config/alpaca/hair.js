@@ -1,4 +1,4 @@
 export const hair = {
   name: 'Hair',
-  alpacahair: ['bang', 'curls', 'default', 'elegant', 'fancy', 'quiff', 'short']
+  items: ['bang', 'curls', 'default', 'elegant', 'fancy', 'quiff', 'short']
 }
