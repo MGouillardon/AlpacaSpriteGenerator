@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full min-h-96 grid grid-cols-2 rounded-xl shadow-md bg-bali-hai-200 border border-bali-hai-300 p-8">
-        <div>
+    <div class="w-full min-h-[600px] grid grid-cols-2 rounded-xl shadow-md bg-bali-hai-200 border border-bali-hai-300">
+        <div class="p-4">
             <slot name="alpaca_sprite"></slot>
         </div>
-        <div>
+        <div class="p-4 ">
             <slot name="alpaca_custom"></slot>
         </div>
     </div>

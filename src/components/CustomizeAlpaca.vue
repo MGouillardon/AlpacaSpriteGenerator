@@ -15,9 +15,9 @@ const setSelectedItems = (category) => {
 </script>
 
 <template>
-  <main class="font-primary">
+  <main class="font-primary flex flex-col justify-between">
     <section>
-      <h2>Accessorize the Alpaca</h2>
+      <h2 class="text-2xl py-4">Accessorize the Alpaca</h2>
       <div class="flex flex-wrap gap-2 font-primary">
         <ButtonPrimary
           v-for="(category, key) in alpaca"
@@ -29,7 +29,7 @@ const setSelectedItems = (category) => {
       </div>
     </section>
     <section>
-      <h2>Style</h2>
+      <h2 class="text-2xl py-4">Style</h2>
       <div class="flex flex-wrap gap-2 font-primary">
         <ButtonPrimary
           v-for="(item, key) in selectedItems"
