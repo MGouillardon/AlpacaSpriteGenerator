@@ -8,6 +8,7 @@ const alpaca = ref(alpacaConfig)
 const selectedCategory = ref(null)
 const selectedItem = ref(null)
 const itemsForCategorySelected = ref([])
+const emit = defineEmits(['itemSelected'])
 
 const setItemsForCategorySelected = (category) => {
   selectedCategory.value = category.name
@@ -22,7 +23,8 @@ const setSelectedCategory = (category) => {
 }
 
 const setSelectedItem = (item) => {
-  return (selectedItem.value = item)
+  selectedItem.value = item
+  emit('itemSelected', selectedItem.value)
 }
 </script>
 
