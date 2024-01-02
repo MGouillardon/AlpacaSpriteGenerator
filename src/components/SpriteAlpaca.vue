@@ -13,6 +13,7 @@ const props = defineProps({
 })
 
 const IMAGE_PATH = '/images/alpaca/'
+
 const sprite = ref({
   accessories: 'default',
   backgrounds: 'blue50',
@@ -28,8 +29,6 @@ const sprite = ref({
 const filteredSpriteParts = computed(() => {
   return spriteParts.filter((part) => part.name !== 'accessories' || sprite.value.accessories)
 })
-
-console.log(filteredSpriteParts);
 
 const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite)
 
