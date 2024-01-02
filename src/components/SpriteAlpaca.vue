@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watchEffect } from 'vue'
+import { alpacaConfig } from '@/config/alpaca/alpaca'
 import ButtonPrimary from './UI/ButtonPrimary.vue'
 
 const props = defineProps({
@@ -8,6 +9,8 @@ const props = defineProps({
     required: true
   }
 })
+
+console.log(alpacaConfig);
 
 const sprite = ref({})
 
@@ -33,6 +36,14 @@ const downloadSprite = () => {
       link.href = dataURL
       link.click()
     })
+}
+
+const getRandomOption = (options) => options[Math.floor(Math.random() * options.length)];
+
+const getRandomSprite = () => {
+  Object.keys(alpacaConfig).forEach(category => {
+    sprite.value[category] = getRandomOption(alpacaConfig[category].items);
+  });
 }
 
 watchEffect(() => {
@@ -103,5 +114,6 @@ watchEffect(() => {
   </div>
   <div>
     <ButtonPrimary class="mt-4" text="Download" @click="downloadSprite" />
+    <ButtonPrimary class="mt-4" text="Random" @click="getRandomSprite" />
   </div>
 </template>
