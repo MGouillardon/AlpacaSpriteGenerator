@@ -62,56 +62,58 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="relative h-full w-auto flex items-center justify-center">
+<div class="h-full">
+  <div class="relative h-[85%] w-auto flex items-center justify-center">
     <img
       v-if="sprite.accessories"
-      class="absolute w-auto h-3/4 z-40"
+      class="absolute w-auto h-full z-40"
       :src="`/images/alpaca/accessories/${sprite.accessories}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4 rounded-xl"
+      class="absolute w-auto h-full rounded-xl"
       :src="`/images/alpaca/backgrounds/${sprite.backgrounds || 'blue50'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4"
+      class="absolute w-auto h-full"
       :src="`/images/alpaca/ears/${sprite.ears || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4 z-30"
+      class="absolute w-auto h-full z-30"
       :src="`/images/alpaca/eyes/${sprite.eyes || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4 z-20"
+      class="absolute w-auto h-full z-20"
       :src="`/images/alpaca/hair/${sprite.hair || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4"
+      class="absolute w-auto h-full"
       :src="`/images/alpaca/leg/${sprite.leg || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4 z-10"
+      class="absolute w-auto h-full z-10"
       :src="`/images/alpaca/mouth/${sprite.mouth || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4"
+      class="absolute w-auto h-full"
       :src="`/images/alpaca/neck/${sprite.neck || 'default'}.png`"
       alt="Alpaca Sprite"
     />
     <img
-      class="absolute w-auto h-3/4"
+      class="absolute w-auto h-full"
       :src="`/images/alpaca/nose/${sprite.nose || 'nose'}.png`"
       alt="Alpaca Sprite"
     />
   </div>
-  <div>
-    <ButtonPrimary class="mt-4" text="Download" @click="downloadSprite" />
-    <ButtonPrimary class="mt-4" text="Random" @click="getRandomSprite" />
+  <div class="flex space-x-4 mt-6">
+    <ButtonPrimary text="Download" @click="downloadSprite" />
+    <ButtonPrimary text="Random" @click="getRandomSprite" />
   </div>
+</div>
 </template>
