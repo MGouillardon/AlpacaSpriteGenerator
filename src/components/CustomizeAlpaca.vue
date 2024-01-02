@@ -4,6 +4,7 @@ import { alpacaConfig } from '@/config/alpaca/alpaca'
 import { ref } from 'vue'
 
 const alpaca = ref(alpacaConfig)
+const emits = defineEmits(['item-selected'])
 const selectedCategory = ref(null)
 const selectedItem = ref(null)
 const itemsForCategorySelected = ref([])
@@ -20,6 +21,7 @@ const setSelectedCategory = (category) => {
 }
 
 const setSelectedItem = (item) => {
+  emits('item-selected', { category: selectedCategory.value, item })
   return (selectedItem.value = item)
 }
 

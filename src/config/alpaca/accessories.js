@@ -1,7 +1,7 @@
 export const accessories = {
     name: 'Accessories',
     items: [
-        'earring',
+        'earrings',
         'flower',
         'glasses',
         'headphone',
