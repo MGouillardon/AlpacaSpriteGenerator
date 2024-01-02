@@ -12,7 +12,7 @@ const props = defineProps({
   }
 })
 
-const IMAGE_PATH = '/images/alpaca/';
+const IMAGE_PATH = '/images/alpaca/'
 const sprite = ref({
   accessories: 'default',
   backgrounds: 'blue50',
@@ -26,17 +26,19 @@ const sprite = ref({
 })
 
 const filteredSpriteParts = computed(() => {
-  return spriteParts.filter(part => part.name !== 'accessories' || sprite.value.accessories)
+  return spriteParts.filter((part) => part.name !== 'accessories' || sprite.value.accessories)
 })
 
-const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite);
+console.log(filteredSpriteParts);
 
-const getRandomOption = (options) => options[Math.floor(Math.random() * options.length)];
+const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite)
+
+const getRandomOption = (options) => options[Math.floor(Math.random() * options.length)]
 
 const getRandomSprite = () => {
-  Object.keys(alpacaConfig).forEach(category => {
-    sprite.value[category] = getRandomOption(alpacaConfig[category].items);
-  });
+  Object.keys(alpacaConfig).forEach((category) => {
+    sprite.value[category] = getRandomOption(alpacaConfig[category].items)
+  })
 }
 
 watchEffect(() => {
@@ -57,20 +59,21 @@ watchEffect(() => {
 </script>
 
 <template>
-<div class="h-full">
-  <div class="relative h-[85%] w-auto flex items-center justify-center">
-    <img
-      v-for="(part, index) in filteredSpriteParts"
-      :key="index"
-      class="absolute w-auto h-full"
-      :class="{[`z-${part.zIndex}`]: part.zIndex, 'rounded-xl': part.name === 'backgrounds'}"
-      :src="`${IMAGE_PATH}${part.name}/${sprite[part.name] || part.default}.png`"
-      alt="Alpaca Sprite"
-    />
+  <div class="h-full">
+    <div class="relative h-[85%] w-auto flex items-center justify-center">
+      <img
+        v-for="(part, index) in filteredSpriteParts"
+        :key="index"
+        class="absolute w-auto h-full"
+        :style="{ zIndex: part.zIndex }"
+        :class="{ 'rounded-xl': part.name === 'backgrounds' }"
+        :src="`${IMAGE_PATH}${part.name}/${sprite[part.name] || part.default}.png`"
+        alt="Alpaca Sprite"
+      />
+    </div>
+    <div class="flex space-x-4 mt-6">
+      <ButtonPrimary text="Download" @click="downloadSprite" />
+      <ButtonPrimary text="Random" @click="getRandomSprite" />
+    </div>
   </div>
-  <div class="flex space-x-4 mt-6">
-    <ButtonPrimary text="Download" @click="downloadSprite" />
-    <ButtonPrimary text="Random" @click="getRandomSprite" />
-  </div>
-</div>
 </template>
