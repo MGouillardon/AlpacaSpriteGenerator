@@ -4,10 +4,10 @@ import SpriteAlpaca from '@/components/SpriteAlpaca.vue'
 import CustomizeAlpaca from '@/components/CustomizeAlpaca.vue'
 import { ref } from 'vue'
 
-const selectedItem = ref(null)
+const selectedItem = ref({})
 
-const updateItem = (item) => {
-  selectedItem.value = item
+const updateSelectedItem = ({ category, item }) => {
+  selectedItem.value[category.toLowerCase()] = item.toLowerCase()
 }
 </script>
 
@@ -17,7 +17,7 @@ const updateItem = (item) => {
       <SpriteAlpaca :selectedItem="selectedItem" />
     </template>
     <template #alpaca_custom>
-      <CustomizeAlpaca @item-selected="updateItem" />
+      <CustomizeAlpaca @item-selected="updateSelectedItem" />
     </template>
   </SpriteGeneratorLayout>
 </template>

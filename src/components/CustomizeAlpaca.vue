@@ -5,10 +5,10 @@ import { capitalizeFirstLetter } from '@/utils/capitalizeFirstLetter'
 import { ref } from 'vue'
 
 const alpaca = ref(alpacaConfig)
+const emits = defineEmits(['item-selected'])
 const selectedCategory = ref(null)
 const selectedItem = ref(null)
 const itemsForCategorySelected = ref([])
-const emit = defineEmits(['itemSelected'])
 
 const setItemsForCategorySelected = (category) => {
   selectedCategory.value = category.name
@@ -23,8 +23,8 @@ const setSelectedCategory = (category) => {
 }
 
 const setSelectedItem = (item) => {
-  selectedItem.value = item
-  emit('itemSelected', selectedItem.value)
+  emits('item-selected', { category: selectedCategory.value, item })
+  return (selectedItem.value = item)
 }
 </script>
 

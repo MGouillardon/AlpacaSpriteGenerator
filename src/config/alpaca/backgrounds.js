@@ -1,5 +1,5 @@
-export const background = {
-  name: 'Background',
+export const backgrounds = {
+  name: 'Backgrounds',
   items: [
     'blue50',
     'blue60',
