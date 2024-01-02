@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watchEffect, computed } from 'vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
+import { spriteParts } from '@/config/sprite/spriteParts'
 import ButtonPrimary from './UI/ButtonPrimary.vue'
 
 const props = defineProps({
@@ -12,19 +13,6 @@ const props = defineProps({
 
 const IMAGE_PATH = '/images/alpaca/';
 const sprite = ref({})
-
-
-const spriteParts = [
-  { name: 'accessories', zIndex: 40 },
-  { name: 'backgrounds', default: 'blue50' },
-  { name: 'ears', default: 'default' },
-  { name: 'eyes', zIndex: 30, default: 'default' },
-  { name: 'hair', zIndex: 20, default: 'default' },
-  { name: 'leg', default: 'default' },
-  { name: 'mouth', zIndex: 10, default: 'default' },
-  { name: 'neck', default: 'default' },
-  { name: 'nose', default: 'nose' },
-]
 
 const filteredSpriteParts = computed(() => {
   return spriteParts.filter(part => part.name !== 'accessories' || sprite.value.accessories)
