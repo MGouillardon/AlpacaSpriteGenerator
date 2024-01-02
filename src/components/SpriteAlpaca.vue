@@ -46,12 +46,12 @@
         alt="Alpaca Sprite"
       />
       <img
-        class="absolute w-auto h-3/4 z-10"
+        class="absolute w-auto h-3/4 z-30"
         :src="`/images/alpaca/eyes/${sprite.eyes || 'default'}.png`"
         alt="Alpaca Sprite"
       />
       <img
-        class="absolute w-auto h-3/4"
+        class="absolute w-auto h-3/4 z-20"
         :src="`/images/alpaca/hair/${sprite.hair || 'default'}.png`"
         alt="Alpaca Sprite"
       />
