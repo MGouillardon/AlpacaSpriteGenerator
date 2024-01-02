@@ -2,6 +2,7 @@
 import { ref, watchEffect, computed } from 'vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
 import { spriteParts } from '@/config/sprite/spriteParts'
+import { useSpriteDownloader } from '@/composables/useSpriteDownloader'
 import ButtonPrimary from './UI/ButtonPrimary.vue'
 
 const props = defineProps({
@@ -12,35 +13,23 @@ const props = defineProps({
 })
 
 const IMAGE_PATH = '/images/alpaca/';
-const sprite = ref({})
+const sprite = ref({
+  accessories: 'default',
+  backgrounds: 'blue50',
+  ears: 'default',
+  eyes: 'default',
+  hair: 'default',
+  leg: 'default',
+  mouth: 'default',
+  neck: 'default',
+  nose: 'nose'
+})
 
 const filteredSpriteParts = computed(() => {
   return spriteParts.filter(part => part.name !== 'accessories' || sprite.value.accessories)
 })
 
-const downloadSprite = () => {
-  const canvas = document.createElement('canvas')
-  const contexte = canvas.getContext('2d')
-
-  const parts = ['backgrounds', 'leg', 'neck', 'nose', 'mouth', 'ears', 'hair', 'eyes', 'accessories']
-  const images = parts.map(part => {
-    const img = new Image()
-    img.src = `${IMAGE_PATH}${part}/${sprite.value[part] || 'default'}.png`
-    return img
-  })
-
-  Promise.all(images.map(img => new Promise(resolve => img.onload = resolve)))
-    .then(() => {
-      canvas.width = images[0].width
-      canvas.height = images[0].height
-      images.forEach(img => contexte.drawImage(img, 0, 0))
-      const dataURL = canvas.toDataURL('image/png')
-      const link = document.createElement('a')
-      link.download = 'alpaca.png'
-      link.href = dataURL
-      link.click()
-    })
-}
+const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite);
 
 const getRandomOption = (options) => options[Math.floor(Math.random() * options.length)];
 
@@ -55,14 +44,14 @@ watchEffect(() => {
 
   sprite.value = {
     accessories: accessories,
-    backgrounds: backgrounds || 'blue50',
-    ears: ears || 'default',
-    eyes: eyes || 'default',
-    hair: hair || 'default',
-    leg: leg || 'default',
-    mouth: mouth || 'default',
-    neck: neck || 'default',
-    nose: nose || 'nose'
+    backgrounds: backgrounds,
+    ears: ears,
+    eyes: eyes,
+    hair: hair,
+    leg: leg,
+    mouth: mouth,
+    neck: neck,
+    nose: nose
   }
 })
 </script>
