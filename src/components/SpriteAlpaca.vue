@@ -10,8 +10,6 @@ const props = defineProps({
   }
 })
 
-console.log(alpacaConfig);
-
 const sprite = ref({})
 
 const downloadSprite = () => {
