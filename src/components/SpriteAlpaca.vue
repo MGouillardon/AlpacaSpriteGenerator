@@ -15,15 +15,15 @@ const props = defineProps({
 const IMAGE_PATH = '/images/alpaca/'
 
 const sprite = ref({
-  accessories: 'default',
-  backgrounds: 'blue50',
-  ears: 'default',
-  eyes: 'default',
-  hair: 'default',
-  leg: 'default',
-  mouth: 'default',
-  neck: 'default',
-  nose: 'nose'
+  accessories: null,
+  backgrounds: null,
+  ears: null,
+  eyes: null,
+  hair: null,
+  leg: null,
+  mouth: null,
+  neck: null,
+  nose: null
 })
 
 const filteredSpriteParts = computed(() => {
@@ -41,19 +41,9 @@ const getRandomSprite = () => {
 }
 
 watchEffect(() => {
-  const { accessories, backgrounds, ears, eyes, hair, leg, mouth, neck, nose } = props.selectedItem
-
-  sprite.value = {
-    accessories: accessories,
-    backgrounds: backgrounds,
-    ears: ears,
-    eyes: eyes,
-    hair: hair,
-    leg: leg,
-    mouth: mouth,
-    neck: neck,
-    nose: nose
-  }
+  Object.keys(props.selectedItem).forEach((item) => {
+    sprite.value[item] = props.selectedItem[item]
+  })
 })
 </script>
 
