@@ -3,6 +3,7 @@ import { ref, watchEffect } from 'vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
 import { spriteParts } from '@/config/sprite/spriteParts'
 import { useSpriteDownloader } from '@/composables/useSpriteDownloader'
+import { useSpriteRandomizer } from '@/composables/useSpriteRandomizer'
 import ButtonPrimary from './UI/ButtonPrimary.vue'
 
 const props = defineProps({
@@ -28,13 +29,7 @@ const sprite = ref({
 
 const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite)
 
-const getRandomOption = (options) => options[Math.floor(Math.random() * options.length)]
-
-const getRandomSprite = () => {
-  Object.keys(alpacaConfig).forEach((category) => {
-    sprite.value[category] = getRandomOption(alpacaConfig[category].items)
-  })
-}
+const { getRandomSprite } = useSpriteRandomizer(alpacaConfig, sprite)
 
 watchEffect(() => {
   Object.keys(props.selectedItem).forEach((item) => {
@@ -47,7 +42,7 @@ watchEffect(() => {
   <div class="h-full">
     <div class="relative h-[85%] w-auto flex items-center justify-center">
       <img
-      v-for="part in spriteParts"
+        v-for="part in spriteParts"
         :key="part.name"
         v-bind="{
           class: ['absolute w-auto h-full', { 'rounded-xl': part.name === 'backgrounds' }],
