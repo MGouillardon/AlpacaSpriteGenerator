@@ -2,6 +2,7 @@
 import { ref, watchEffect } from 'vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
 import { spriteParts } from '@/config/sprite/spriteParts'
+import { IMAGES_PATH } from '@/config/images/images_path'
 import { useSpriteDownloader } from '@/composables/useSpriteDownloader'
 import { useSpriteRandomizer } from '@/composables/useSpriteRandomizer'
 import ButtonPrimary from './UI/ButtonPrimary.vue'
@@ -13,7 +14,6 @@ const props = defineProps({
   }
 })
 
-const IMAGE_PATH = '/images/alpaca/'
 
 const sprite = ref({
   accessories: 'default',
@@ -27,7 +27,7 @@ const sprite = ref({
   nose: 'nose'
 })
 
-const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite)
+const { downloadSprite } = useSpriteDownloader(IMAGES_PATH, sprite)
 
 const { getRandomSprite } = useSpriteRandomizer(alpacaConfig, sprite)
 
@@ -47,7 +47,7 @@ watchEffect(() => {
         v-bind="{
           class: ['absolute w-auto h-full', { 'rounded-xl': part.name === 'backgrounds' }],
           style: { zIndex: part.zIndex },
-          src: `${IMAGE_PATH}${part.name}/${sprite[part.name] || part.default}.png`,
+          src: `${IMAGES_PATH}${part.name}/${sprite[part.name] || part.default}.png`,
           alt: `Alpaca ${part.name} ${sprite[part.name] || part.default}`
         }"
       />
