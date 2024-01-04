@@ -34,11 +34,13 @@ const setSelectedItem = (item) => {
       <h2 class="text-2xl py-4">Accessorize the Alpaca</h2>
       <div class="flex flex-wrap gap-2 font-primary">
         <ButtonPrimary
-          v-for="(category, key) in alpaca"
-          :key="key"
-          :text="category.name"
-          :class="{ 'bg-bali-hai-600 text-white': selectedCategory === category.name }"
-          @click="setSelectedCategory(category)"
+          v-for="category in alpaca"
+          :key="category.name"
+          v-bind="{
+            text: category.name,
+            class: { 'bg-bali-hai-600 text-white': selectedCategory === category.name },
+            onClick: () => setSelectedCategory(category)
+          }"
         />
       </div>
     </section>
@@ -46,11 +48,13 @@ const setSelectedItem = (item) => {
       <h2 class="text-2xl py-4">Style</h2>
       <div class="flex flex-wrap gap-2 font-primary">
         <ButtonPrimary
-          v-for="(item, key) in itemsForCategorySelected"
-          :key="key"
-          :text="item"
-          :class="{ 'bg-bali-hai-600 text-white': selectedItem === item }"
-          @click="setSelectedItem(item)"
+          v-for="item in itemsForCategorySelected"
+          :key="item"
+          v-bind="{
+            text: item,
+            class: { 'bg-bali-hai-600 text-white': selectedItem === item },
+            onClick: () => setSelectedItem(item)
+          }"
         />
       </div>
     </section>
