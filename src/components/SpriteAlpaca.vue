@@ -47,13 +47,14 @@ watchEffect(() => {
   <div class="h-full">
     <div class="relative h-[85%] w-auto flex items-center justify-center">
       <img
-        v-for="(part, index) in spriteParts"
-        :key="index"
-        class="absolute w-auto h-full"
-        :style="{ zIndex: part.zIndex }"
-        :class="{ 'rounded-xl': part.name === 'backgrounds' }"
-        :src="`${IMAGE_PATH}${part.name}/${sprite[part.name] || part.default}.png`"
-        alt="Alpaca Sprite"
+      v-for="part in spriteParts"
+        :key="part.name"
+        v-bind="{
+          class: ['absolute w-auto h-full', { 'rounded-xl': part.name === 'backgrounds' }],
+          style: { zIndex: part.zIndex },
+          src: `${IMAGE_PATH}${part.name}/${sprite[part.name] || part.default}.png`,
+          alt: `Alpaca ${part.name} ${sprite[part.name] || part.default}`
+        }"
       />
     </div>
     <div class="flex space-x-4 mt-6">
