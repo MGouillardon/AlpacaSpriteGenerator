@@ -1,7 +1,7 @@
 export function useSpriteDownloader(IMAGE_PATH, sprite) {
   const loadImage = async (part) => {
     const img = new Image();
-    img.src = `${IMAGE_PATH}${part}/${sprite.value[part] || 'default'}.png`;
+    img.src = `${IMAGE_PATH}${part}/${sprite.value[part]}.png`;
     await new Promise(resolve => img.onload = resolve);
     return img;
   };

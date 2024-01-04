@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect, computed } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { alpacaConfig } from '@/config/alpaca/alpaca'
 import { spriteParts } from '@/config/sprite/spriteParts'
 import { useSpriteDownloader } from '@/composables/useSpriteDownloader'
@@ -15,19 +15,15 @@ const props = defineProps({
 const IMAGE_PATH = '/images/alpaca/'
 
 const sprite = ref({
-  accessories: null,
-  backgrounds: null,
-  ears: null,
-  eyes: null,
-  hair: null,
-  leg: null,
-  mouth: null,
-  neck: null,
-  nose: null
-})
-
-const filteredSpriteParts = computed(() => {
-  return spriteParts.filter((part) => part.name !== 'accessories' || sprite.value.accessories)
+  accessories: 'default',
+  backgrounds: 'blue50',
+  ears: 'default',
+  eyes: 'default',
+  hair: 'default',
+  leg: 'default',
+  mouth: 'default',
+  neck: 'default',
+  nose: 'nose'
 })
 
 const { downloadSprite } = useSpriteDownloader(IMAGE_PATH, sprite)
@@ -51,7 +47,7 @@ watchEffect(() => {
   <div class="h-full">
     <div class="relative h-[85%] w-auto flex items-center justify-center">
       <img
-        v-for="(part, index) in filteredSpriteParts"
+        v-for="(part, index) in spriteParts"
         :key="index"
         class="absolute w-auto h-full"
         :style="{ zIndex: part.zIndex }"
